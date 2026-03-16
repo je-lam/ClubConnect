@@ -1,0 +1,31 @@
+<?php
+if (!isset($page_title)) {
+    $page_title = 'BroncoClubs';
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?= htmlspecialchars($page_title) ?> | BroncoClubs</title>
+    <link rel="icon" href="/assets/SCU-Seal_Outlined_201-2.jpg">
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <a href="/index.php" class="navbar-logo">
+            <img src="/assets/SCU-Seal_Outlined_201-2.jpg" alt="SCU Seal" class="school-logo">
+            BroncoClubs
+        </a>
+        <ul class="navbar-links">
+            <li><a href="/index.php">Home</a></li>
+            <li><a href="/directory.php">Directory</a></li>
+            <li><a href="/calendar.php">Calendar</a></li>
+        </ul>
+    </nav>
+
+    <main class="<?= isset($full_width) ? 'main-full' : '' ?>">

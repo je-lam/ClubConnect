@@ -1,0 +1,434 @@
+/* base reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #f2f2f2;
+    color: #222222;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* Navbar */
+
+.navbar {
+    background-color: #cc0000;
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    gap: 2rem;
+}
+
+.navbar-logo {
+    color: white;
+    font-weight: bold;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.school-logo {
+    height: 36px;
+    width: auto;
+}
+
+.navbar-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.navbar-links a {
+    color: white;
+    font-size: 0.95rem;
+}
+
+.navbar-links a:hover {
+    text-decoration: underline;
+}
+
+
+/* Main content wrapper */
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+
+main.main-full {
+    max-width: 100%;
+    padding: 0;
+}
+
+
+/* Calendar page */
+
+.calendar-wrapper {
+    padding: 1rem 1.5rem;
+}
+
+.calendar-heading {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 0.75rem;
+    color: #333333;
+}
+
+.calendar-container {
+    background-color: white;
+    border: 1px solid #dddddd;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.calendar-scroll-area {
+    overflow-y: scroll;
+    height: calc(100vh - 130px);
+}
+
+.calendar-header-row {
+    display: flex;
+    border-bottom: 2px solid #dddddd;
+    background-color: white;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.calendar-time-gutter {
+    width: 64px;
+    flex-shrink: 0;
+    border-right: 1px solid #dddddd;
+}
+
+.calendar-day-header {
+    flex: 1;
+    text-align: center;
+    padding: 0.5rem 0;
+    border-right: 1px solid #dddddd;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.calendar-day-header.weekend {
+    background-color: #fafafa;
+}
+
+.calendar-day-name {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: #777777;
+    letter-spacing: 0.05em;
+}
+
+.calendar-day-header.today .calendar-day-name {
+    color: #cc0000;
+}
+
+.calendar-day-date {
+    font-size: 1.2rem;
+    color: #333333;
+    font-weight: 300;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.calendar-day-date.today-circle {
+    background-color: #cc0000;
+    color: white;
+    font-weight: bold;
+}
+
+.calendar-body {
+    display: flex;
+    position: relative;
+}
+
+.calendar-time-col {
+    width: 64px;
+    flex-shrink: 0;
+    position: relative;
+    border-right: 1px solid #dddddd;
+}
+
+.calendar-time-label {
+    position: absolute;
+    right: 6px;
+    font-size: 0.65rem;
+    color: #999999;
+    transform: translateY(-50%);
+    white-space: nowrap;
+}
+
+.calendar-days {
+    flex: 1;
+    display: flex;
+    position: relative;
+}
+
+.calendar-day-col {
+    flex: 1;
+    position: relative;
+    border-right: 1px solid #dddddd;
+}
+
+.calendar-day-col.weekend {
+    background-color: #fafafa;
+}
+
+.calendar-day-col.today {
+    background-color: #fff9f9;
+}
+
+.calendar-hour-cell {
+    height: 60px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.calendar-event {
+    position: absolute;
+    left: 3px;
+    right: 3px;
+    background-color: #cc0000;
+    color: white;
+    border-radius: 4px;
+    padding: 3px 6px;
+    overflow: hidden;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.calendar-event:hover {
+    background-color: #aa0000;
+}
+
+.calendar-event-name {
+    font-size: 0.75rem;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.calendar-event-time {
+    font-size: 0.65rem;
+    opacity: 0.85;
+}
+
+.current-time-line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #cc0000;
+    z-index: 2;
+    display: none;
+    pointer-events: none;
+}
+
+.current-time-line::before {
+    content: '';
+    position: absolute;
+    left: -4px;
+    top: -4px;
+    width: 10px;
+    height: 10px;
+    background-color: #cc0000;
+    border-radius: 50%;
+}
+
+
+/* Directory page */
+
+.directory-page {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.filter-section h2,
+.recently-viewed-section h2,
+.category-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+}
+
+.tag-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tag-pill {
+    background-color: #dddddd;
+    border: none;
+    border-radius: 20px;
+    padding: 0.35rem 0.9rem;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.tag-pill:hover {
+    background-color: #bbbbbb;
+}
+
+.tag-pill.active {
+    background-color: #cc0000;
+    color: white;
+}
+
+.recently-viewed-section {
+    border-top: 1px solid #cccccc;
+    padding-top: 1rem;
+}
+
+#recently-viewed-list {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.recent-club-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.recent-club-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #444444;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.no-recent {
+    font-size: 0.85rem;
+    color: #888888;
+}
+
+.directory-controls {
+    border-top: 1px solid #cccccc;
+    padding-top: 1rem;
+}
+
+#toggle-view-btn {
+    background-color: #444444;
+    color: white;
+    border: none;
+    padding: 0.4rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+#toggle-view-btn:hover {
+    background-color: #cc0000;
+}
+
+.category-section {
+    border-top: 1px solid #cccccc;
+    padding-top: 1rem;
+}
+
+.club-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+.club-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.club-card {
+    background-color: white;
+    border-radius: 6px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.club-card:hover {
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.club-list .club-card {
+    flex-direction: row;
+    text-align: left;
+}
+
+.club-card-logo {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.club-card-logo-placeholder {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: #cc0000;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+}
+
+.club-card-name {
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.club-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    justify-content: center;
+}
+
+.club-list .club-card-tags {
+    justify-content: flex-start;
+}
+
+.tag-badge {
+    background-color: #cc0000;
+    color: white;
+    border-radius: 10px;
+    padding: 0.15rem 0.5rem;
+    font-size: 0.7rem;
+}
