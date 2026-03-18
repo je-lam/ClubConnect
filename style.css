@@ -432,3 +432,9 @@ main.main-full {
     padding: 0.15rem 0.5rem;
     font-size: 0.7rem;
 }
+
+.welcome-section {
+    background-color: gray; 
+    margin: 20px;
+    width: auto;
+}
