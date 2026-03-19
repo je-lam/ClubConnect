@@ -11,7 +11,7 @@ require 'includes/header.php';
 
 <div class="welcome-section">
     <h2>Welcome</h2>
-    <p class="welcome-description">This is BroncoClubs.</p>
+    <p class="welcome-description">This is ClubConnect.</p>
 </div>
 
 <div class="today-club-section">
