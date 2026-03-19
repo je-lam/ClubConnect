@@ -551,8 +551,49 @@ main.main-full {
     margin-top: 0;
 }
 
-.board-members-empty {
-    /* intentionally empty - no grid for now */
+.board-members-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+}
+
+.board-member-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.board-member-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.board-member-avatar-placeholder {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-color: #cc0000;
+    color: white;
+    font-weight: bold;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.board-member-name {
+    font-size: 0.8rem;
+    color: #111111;
+    text-align: center;
+}
+
+.board-member-discord {
+    font-size: 0.75rem;
+    color: #666666;
+    text-align: center;
 }
 
 @media (max-width: 900px) {

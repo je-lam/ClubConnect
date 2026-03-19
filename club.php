@@ -36,6 +36,15 @@ $slack_url = trim((string) ($club['slack_url'] ?? ''));
 $discord_url = trim((string) ($club['discord_url'] ?? ''));
 $instagram_url = trim((string) ($club['instagram_url'] ?? ''));
 
+$board_stmt = $db->prepare("
+    SELECT name, avatar_url, discord_username
+    FROM board_members
+    WHERE club_id = ?
+    ORDER BY id
+");
+$board_stmt->execute([$club_id]);
+$board_members = $board_stmt->fetchAll() ?: [];
+
 require 'includes/header.php';
 ?>
 
@@ -100,7 +109,31 @@ require 'includes/header.php';
 
             <div class="club-board-members">
                 <h2>Board Members</h2>
-                <div class="board-members-empty"></div>
+                <?php if (count($board_members) > 0): ?>
+                    <div class="board-members-grid">
+                        <?php foreach ($board_members as $member): ?>
+                            <?php
+                            $avatar_url = $member['avatar_url'] ?? null;
+                            $member_name = $member['name'] ?? '';
+                            $member_discord = $member['discord_username'] ?? '';
+                            $initial = mb_substr($member_name, 0, 1);
+                            ?>
+                            <div class="board-member-card">
+                                <?php if (!empty($avatar_url)): ?>
+                                    <img src="<?= htmlspecialchars($avatar_url) ?>" alt="" class="board-member-avatar">
+                                <?php else: ?>
+                                    <div class="board-member-avatar board-member-avatar-placeholder">
+                                        <?= htmlspecialchars($initial !== '' ? $initial : '?') ?>
+                                    </div>
+                                <?php endif; ?>
+                                <p class="board-member-name"><?= htmlspecialchars($member_name) ?></p>
+                                <?php if (!empty($member_discord)): ?>
+                                    <p class="board-member-discord">@<?= htmlspecialchars($member_discord) ?></p>
+                                <?php endif; ?>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
             </div>
         </div>
     </div>
