@@ -565,3 +565,33 @@ main.main-full {
         width: 100%;
     }
 }
+
+.welcome-description {
+  margin: 20px;
+  padding: 20px;
+  background-color: #ffffff;
+  outline-style: solid;
+  border-radius: 20px;
+
+
+}
+
+
+.welcome-list {
+  margin: 20px;
+  list-style-type: none;
+}
+
+
+.bullet-point {
+  margin: 20px;
+  color: #cc0000;
+}
+
+
+.today-club-body {
+   margin: 20px;
+   position: relative;
+   height: 300px;
+   width: auto;
+}
