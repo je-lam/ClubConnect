@@ -1,28 +1,13 @@
 <?php
 
-
-
-
 require 'includes/db.php';
-
-
-
 
 $db = get_db();
 
-
-
-
 $page_title = 'Home';
-
-
-
 
 $today = new DateTime();
 $today_day = (int) $today->format('N'); // 1 = monday, 7 = sunday
-
-
-
 
 $stmt = $db->prepare("
   SELECT events.*, clubs.name AS club_name, clubs.logo_url
@@ -32,15 +17,9 @@ $stmt = $db->prepare("
   ORDER BY events.start_time
 ");
 
-
-
-
 // Get today's club events
 $stmt->execute([$today_day]);
 $today_events = $stmt->fetchAll();
-
-
-
 
 // converts "14:30" to "2:30 PM"
 function format_ampm($time_str)
@@ -55,18 +34,8 @@ function format_ampm($time_str)
   return $h12 . ':' . $minute . ' ' . $ampm;
 }
 
-
-
-
 require 'includes/header.php';
 ?>
-
-
-
-
-
-
-
 
 <div class="welcome-section">
   <h2>Welcome to ClubConnect!</h2>
@@ -90,9 +59,6 @@ require 'includes/header.php';
       </ul>
   </div>
 </div>
-
-
-
 
 <div class="today-club-section">
   <h2>Today's clubs: <?=$today->format('l F j Y') ?> </h2>
@@ -120,4 +86,3 @@ require 'includes/header.php';
        <?php endif; ?>
   </div>
 </div>
-
