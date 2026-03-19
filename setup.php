@@ -18,6 +18,7 @@ $db->exec("
         description   TEXT,
         category      TEXT,
         logo_url      TEXT,
+        linkedin_url  TEXT,
         slack_url     TEXT,
         discord_url   TEXT,
         instagram_url TEXT,

@@ -32,6 +32,7 @@ if (!$club) {
 
 $page_title = $club['name'] ?? $page_title;
 
+$linkedin_url = trim((string) ($club['linkedin_url'] ?? ''));
 $slack_url = trim((string) ($club['slack_url'] ?? ''));
 $discord_url = trim((string) ($club['discord_url'] ?? ''));
 $instagram_url = trim((string) ($club['instagram_url'] ?? ''));
@@ -77,6 +78,15 @@ require 'includes/header.php';
             <div class="club-socials">
                 <h2>Our club's socials</h2>
                 <div class="club-social-icons">
+                    <?php if ($linkedin_url !== ''): ?>
+                        <a class="club-social-icon" href="<?= htmlspecialchars($linkedin_url) ?>" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <img src="/assets/logolinkedin.png" alt="">
+                        </a>
+                    <?php else: ?>
+                        <span class="club-social-icon club-social-icon-disabled" aria-label="LinkedIn">
+                            <img src="/assets/logolinkedin.png" alt="">
+                        </span>
+                    <?php endif; ?>
                     <?php if ($slack_url !== ''): ?>
                         <a class="club-social-icon" href="<?= htmlspecialchars($slack_url) ?>" target="_blank" rel="noopener noreferrer" aria-label="Slack">
                             <img src="/assets/Slack_icon_2019.svg.png" alt="">
