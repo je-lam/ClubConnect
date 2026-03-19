@@ -218,6 +218,11 @@ main.main-full {
     background-color: #aa0000;
 }
 
+.calendar-event-has-logo:hover {
+    background-color: transparent;
+    filter: brightness(0.9);
+}
+
 .calendar-event-name {
     font-size: 0.75rem;
     font-weight: bold;
@@ -229,6 +234,18 @@ main.main-full {
 .calendar-event-time {
     font-size: 0.65rem;
     opacity: 0.85;
+}
+
+.calendar-event-has-logo .calendar-event-name,
+.calendar-event-has-logo .calendar-event-time {
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 2px;
+    display: inline-block;
+    max-width: 100%;
+}
+
+.calendar-event-has-logo .calendar-event-name {
+    margin-bottom: 2px;
 }
 
 .current-time-line {
