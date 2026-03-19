@@ -30,6 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $category = trim($_POST['category'] ?? '');
         $description = trim($_POST['description'] ?? '');
         $logo_url = trim($_POST['logo_url'] ?? '');
+        $linkedin_url = trim($_POST['linkedin_url'] ?? '');
         $slack_url = trim($_POST['slack_url'] ?? '');
         $discord_url = trim($_POST['discord_url'] ?? '');
         $instagram_url = trim($_POST['instagram_url'] ?? '');
@@ -38,10 +39,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $error_message = 'Name and category are required.';
         } else {
             $stmt = $db->prepare("
-                INSERT INTO clubs (name, category, description, logo_url, slack_url, discord_url, instagram_url, featured)
-                VALUES (?, ?, ?, ?, ?, ?, ?, 0)
+                INSERT INTO clubs (name, category, description, logo_url, linkedin_url, slack_url, discord_url, instagram_url, featured)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, 0)
             ");
-            $stmt->execute([$name, $category, $description, $logo_url, $slack_url, $discord_url, $instagram_url]);
+            $stmt->execute([$name, $category, $description, $logo_url, $linkedin_url, $slack_url, $discord_url, $instagram_url]);
             $success_message = 'Club "' . htmlspecialchars($name) . '" added successfully.';
         }
     }
@@ -97,6 +98,9 @@ require 'includes/header.php';
 
             <label for="logo_url">Logo URL</label>
             <input type="text" id="logo_url" name="logo_url" placeholder="https://...">
+
+            <label for="linkedin_url">LinkedIn URL</label>
+            <input type="text" id="linkedin_url" name="linkedin_url" placeholder="https://...">
 
             <label for="slack_url">Slack URL</label>
             <input type="text" id="slack_url" name="slack_url" placeholder="https://...">
