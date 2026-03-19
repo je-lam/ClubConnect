@@ -237,6 +237,4 @@ if (clubDetailName) {
   }
 }
 
-/* Show recently viewed when on the directory page */
-
 showRecentlyViewed();
