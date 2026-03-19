@@ -433,12 +433,6 @@ main.main-full {
     font-size: 0.7rem;
 }
 
-.welcome-section {
-    background-color: gray; 
-    margin: 20px;
-    width: auto;
-}
-
 /* Club detail page */
 .club-detail-page {
     background-color: #d3d3d3;
