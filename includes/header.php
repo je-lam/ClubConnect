@@ -26,6 +26,7 @@ if (!isset($page_title)) {
             <li><a href="/directory.php">Directory</a></li>
             <li><a href="/calendar.php">Calendar</a></li>
         </ul>
+        <a href="/admin.php" class="navbar-admin-btn">Admin</a>
     </nav>
 
     <main class="<?= isset($full_width) ? 'main-full' : '' ?>">
