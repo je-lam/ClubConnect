@@ -279,6 +279,43 @@ main.main-full {
     gap: 2rem;
 }
 
+.search-section {
+    margin-bottom: -0.5rem;
+}
+
+#directory-search-form {
+    display: flex;
+    gap: 0.5rem;
+    max-width: 480px;
+}
+
+.search-input {
+    flex: 1;
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #cc0000;
+}
+
+.search-btn {
+    background-color: #cc0000;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.search-btn:hover {
+    background-color: #aa0000;
+}
+
 .filter-section h2,
 .recently-viewed-section h2,
 .category-title {

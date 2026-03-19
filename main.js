@@ -24,11 +24,66 @@ function updateTimeLine() {
 updateTimeLine();
 setInterval(updateTimeLine, 60000);
 
-/* Tag filtering on the directory page */
+/* Tag filtering and search on the directory page */
 
 var tagPills = document.querySelectorAll(".tag-pill");
 var clubCards = document.querySelectorAll(".club-card");
 var categorySections = document.querySelectorAll(".category-section");
+var searchInput = document.getElementById("search-input");
+var directorySearchForm = document.getElementById("directory-search-form");
+
+function clubMatchesSearch(card, query) {
+  if (!query) return true;
+  var name = (card.dataset.name || "").toLowerCase();
+  var tags = (card.dataset.tags || "").toLowerCase().split(",").map(function (t) {
+    return t.trim();
+  }).filter(Boolean);
+  var section = card.closest(".category-section");
+  var category = (section && section.dataset.category) ? section.dataset.category.toLowerCase() : "";
+  return name.indexOf(query) !== -1 ||
+    tags.some(function (t) {
+      return t.indexOf(query) !== -1;
+    }) ||
+    category.indexOf(query) !== -1;
+}
+
+function clubMatchesTag(card, selectedTag) {
+  if (!selectedTag) return true;
+  var cardTags = (card.dataset.tags || "").split(",").map(function (t) {
+    return t.trim();
+  }).filter(Boolean);
+  return cardTags.indexOf(selectedTag) !== -1;
+}
+
+function applyFilters() {
+  var query = (searchInput && searchInput.value) ? searchInput.value.trim().toLowerCase() : "";
+  var activePill = document.querySelector(".tag-pill.active");
+  var selectedTag = activePill ? activePill.dataset.tag : null;
+
+  clubCards.forEach(function (card) {
+    var matchesSearch = clubMatchesSearch(card, query);
+    var matchesTag = clubMatchesTag(card, selectedTag);
+    card.style.display = matchesSearch && matchesTag ? "" : "none";
+  });
+
+  categorySections.forEach(function (section) {
+    var visibleCards = section.querySelectorAll(".club-card[style=''],.club-card:not([style])");
+    section.style.display = visibleCards.length === 0 ? "none" : "";
+  });
+}
+
+if (directorySearchForm) {
+  directorySearchForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    applyFilters();
+  });
+}
+
+if (searchInput) {
+  searchInput.addEventListener("input", function () {
+    applyFilters();
+  });
+}
 
 tagPills.forEach(function (pill) {
   pill.addEventListener("click", function () {
@@ -39,28 +94,11 @@ tagPills.forEach(function (pill) {
       p.classList.remove("active");
     });
 
-    if (isAlreadyActive) {
-      // clear the filter, show everything
-      clubCards.forEach(function (card) {
-        card.style.display = "";
-      });
-      categorySections.forEach(function (section) {
-        section.style.display = "";
-      });
-    } else {
+    if (!isAlreadyActive) {
       pill.classList.add("active");
-
-      clubCards.forEach(function (card) {
-        var cardTags = card.dataset.tags.split(",");
-        card.style.display = cardTags.includes(selectedTag) ? "" : "none";
-      });
-
-      // hide any category section where all clubs are now hidden
-      categorySections.forEach(function (section) {
-        var visibleCards = section.querySelectorAll(".club-card[style=''],.club-card:not([style])");
-        section.style.display = visibleCards.length === 0 ? "none" : "";
-      });
     }
+
+    applyFilters();
   });
 });
 

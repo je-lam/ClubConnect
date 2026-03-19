@@ -43,6 +43,13 @@ require 'includes/header.php';
 
 <section class="directory-page">
 
+    <div class="search-section">
+        <form id="directory-search-form" role="search">
+            <input type="search" id="search-input" class="search-input" placeholder="Search clubs by name, tag, or category" autocomplete="off">
+            <button type="submit" class="search-btn">Search</button>
+        </form>
+    </div>
+
     <div class="filter-section">
         <h2>Filter Tags</h2>
         <div class="tag-pills">
