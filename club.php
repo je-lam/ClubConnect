@@ -117,6 +117,13 @@ require 'includes/header.php';
                 </div>
             </div>
 
+            <div class="club-add-to-calendar">
+                <a class="club-add-to-calendar-btn" target="_blank" href="https://calendar.google.com/calendar/event?action=TEMPLATE&amp;tmeid=MTFhY24wbzVtdGxmMTlxbWUwdTFuaGE2MTggY18zNjcwYWY1NmFkMWNkYWRlMDk0YTFmYzU2NDFhNzg2ZTIzMDNiNzNjY2ZmYjFkNzhjMzUwNjQ2ZmRmYmE0OGZlQGc&amp;tmsrc=c_3670af56ad1cdade094a1fc5641a786e2303b73ccffb1d78c350646fdfba48fe%40group.calendar.google.com" rel="noopener noreferrer" aria-label="Add to Google Calendar">
+                    <img src="/assets/logo_gcalendar.svg" alt="" class="club-add-to-calendar-icon">
+                    Add to Calendar
+                </a>
+            </div>
+
             <div class="club-board-members">
                 <h2>Board Members</h2>
                 <?php if (count($board_members) > 0): ?>
