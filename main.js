@@ -100,7 +100,7 @@ function getRecentlyViewed() {
   return [];
 }
 
-function saveRecentlyViewed(id, name) {
+function saveRecentlyViewed(id, name, logoUrl) {
   var recent = getRecentlyViewed();
 
   // remove this club if it's already in the list so we don't get duplicates
@@ -109,7 +109,11 @@ function saveRecentlyViewed(id, name) {
   });
 
   // add to the front of the list
-  recent.unshift({ id: id, name: name });
+  recent.unshift({
+    id: id,
+    name: name,
+    logoUrl: logoUrl || "",
+  });
 
   // keep it to 5 items max
   if (recent.length > 5) {
@@ -132,14 +136,36 @@ function showRecentlyViewed() {
 
   list.innerHTML = "";
 
+  var needsResave = false;
+
   recent.forEach(function (item) {
+    // If we dont have a logoUrl saved yet, try to read it from the corresponding club card on the directory page
+    if (!item.logoUrl) {
+      var card = document.querySelector('.club-card[data-id="' + item.id + '"]');
+      if (card) {
+        var cardLogoImg = card.querySelector(".club-card-logo");
+        if (cardLogoImg && cardLogoImg.getAttribute("src")) {
+          item.logoUrl = cardLogoImg.getAttribute("src");
+          needsResave = true;
+        }
+      }
+    }
+
     var link = document.createElement("a");
     link.href = "/club.php?id=" + item.id;
     link.className = "recent-club-item";
 
     var avatar = document.createElement("div");
     avatar.className = "recent-club-avatar";
-    avatar.textContent = item.name.charAt(0);
+
+    if (item.logoUrl) {
+      var img = document.createElement("img");
+      img.src = item.logoUrl;
+      img.alt = "";
+      avatar.appendChild(img);
+    } else {
+      avatar.textContent = item.name.charAt(0);
+    }
 
     var label = document.createElement("p");
     label.textContent = item.name;
@@ -148,6 +174,12 @@ function showRecentlyViewed() {
     link.appendChild(label);
     list.appendChild(link);
   });
+
+  // If we discovered any missing logo URLs, persist the updated list
+  // so future loads don't need to re-derive them.
+  if (needsResave) {
+    localStorage.setItem("recentlyViewed", JSON.stringify(recent));
+  }
 }
 
 /* Save to recently viewed when on the club detail page */
@@ -160,7 +192,10 @@ if (clubDetailName) {
   var clubName = clubDetailName.textContent.trim();
 
   if (clubId && clubName) {
-    saveRecentlyViewed(clubId, clubName);
+    var clubLogoImg = document.querySelector(".club-detail-logo");
+    var clubLogoUrl = clubLogoImg ? clubLogoImg.getAttribute("src") : "";
+
+    saveRecentlyViewed(clubId, clubName, clubLogoUrl);
   }
 }
 
