@@ -635,6 +635,13 @@ main.main-full {
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    cursor: pointer;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.club-social-icon:hover:not(.club-social-icon-disabled) {
+    opacity: 0.85;
+    transform: scale(1.05);
 }
 
 .club-social-icon img {
