@@ -49,10 +49,10 @@ require 'includes/header.php';
 
 
 <div class="welcome-section">
-   <h2>Welcome to BroncoClubs!</h2>
+   <h2>Welcome to ClubConnect!</h2>
    <div class="welcome-description">
        <p>
-       Looking to get involved on campus outside of class? BroncoClubs can help you explore all the clubs at Santa Clara in minutes. No matter your interests, there's a club waiting for you. Here's what you can do on BroncoClubs.
+       Looking to get involved on campus outside of class? ClubConnect can help you explore all the clubs at Santa Clara in minutes. No matter your interests, there's a club waiting for you. Here's what you can do on ClubConnect.
        </p>
        <ul class="welcome-list">
            <li>
