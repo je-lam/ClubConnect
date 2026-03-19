@@ -10,7 +10,7 @@ $db->exec("DROP TABLE IF EXISTS board_members");
 $db->exec("DROP TABLE IF EXISTS events");
 $db->exec("DROP TABLE IF EXISTS clubs");
 
-
+// relevant club URLs
 $db->exec("
     CREATE TABLE clubs (
         id            INTEGER PRIMARY KEY AUTOINCREMENT,

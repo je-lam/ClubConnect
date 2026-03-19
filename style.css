@@ -438,3 +438,157 @@ main.main-full {
     margin: 20px;
     width: auto;
 }
+
+/* Club detail page */
+.club-detail-page {
+    background-color: #d9d9d9;
+    padding: 1.5rem 1.5rem 2rem;
+}
+
+.club-detail-columns {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.club-detail-left {
+    flex: 1;
+    min-width: 0;
+}
+
+.club-detail-right {
+    width: 360px;
+    flex-shrink: 0;
+}
+
+.club-detail-title {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: #111111;
+}
+
+.club-detail-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.club-tag-pill {
+    background-color: #cc0000;
+    color: white;
+    border-radius: 999px;
+    padding: 0.3rem 0.75rem;
+    font-size: 0.85rem;
+}
+
+.club-detail-logo-row {
+    margin-bottom: 1rem;
+}
+
+.club-detail-logo {
+    height: 96px;
+    width: auto;
+    border-radius: 8px;
+}
+
+.club-detail-logo-placeholder {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: transparent;
+    font-weight: normal;
+    color: #111111;
+    padding: 0.25rem 0;
+    font-size: 1rem;
+}
+
+.club-detail-description {
+    font-size: 1rem;
+    color: #222222;
+    line-height: 1.4;
+    max-width: 640px;
+}
+
+.club-socials h2,
+.club-board-members h2 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.club-social-icons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.club-social-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    font-size: 0.85rem;
+    color: #111111;
+}
+
+.club-board-members {
+    margin-top: 0;
+}
+
+.board-members-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+}
+
+.board-member-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.board-member-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.board-member-avatar-placeholder {
+    background-color: #cc0000;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.board-member-name {
+    font-size: 0.8rem;
+    color: #111111;
+    text-align: center;
+}
+
+@media (max-width: 900px) {
+    .club-detail-columns {
+        flex-direction: column;
+    }
+
+    .club-detail-right {
+        width: 100%;
+    }
+
+    .club-detail-logo {
+        height: 72px;
+    }
+}
