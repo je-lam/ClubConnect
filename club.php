@@ -70,11 +70,11 @@ require 'includes/header.php';
                 <div class="club-social-icons">
                     <?php if ($slack_url !== ''): ?>
                         <a class="club-social-icon" href="<?= htmlspecialchars($slack_url) ?>" target="_blank" rel="noopener noreferrer" aria-label="Slack">
-                            <img src="/assets/logoslack.png" alt="">
+                            <img src="/assets/logolinkedin.png" alt="">
                         </a>
                     <?php else: ?>
                         <span class="club-social-icon club-social-icon-disabled" aria-label="Slack">
-                            <img src="/assets/logoslack.png" alt="">
+                            <img src="/assets/logolinkedin.png" alt="">
                         </span>
                     <?php endif; ?>
                     <?php if ($discord_url !== ''): ?>
