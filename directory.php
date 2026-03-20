@@ -85,7 +85,7 @@ require 'includes/header.php';
 
                 <?php foreach ($clubs as $club): ?>
 
-                    <a href="/club.php?id=<?= $club['id'] ?>" class="club-card"
+                    <a href="club.php?id=<?= $club['id'] ?>" class="club-card"
                         data-tags="<?= htmlspecialchars(implode(',', $club['tags'])) ?>" data-id="<?= $club['id'] ?>"
                         data-name="<?= htmlspecialchars($club['name']) ?>">
 

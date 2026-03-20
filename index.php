@@ -72,7 +72,7 @@ require 'includes/header.php';
                         ? " background: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url('" . htmlspecialchars($event['logo_url']) . "') center/cover no-repeat;"
                         : '';
                     ?>
-                <a href="/club.php?id=<?= $event['club_id'] ?>" class="calendar-event<?= $has_logo ? ' calendar-event-has-logo' : '' ?>" style="top: <?= $index * 60 ?>px; <?= $bg_style ?>">
+                <a href="club.php?id=<?= $event['club_id'] ?>" class="calendar-event<?= $has_logo ? ' calendar-event-has-logo' : '' ?>" style="top: <?= $index * 60 ?>px; <?= $bg_style ?>">
                     <p><?= htmlspecialchars($event['club_name']) ?></p>
                     <p>
                         <?= format_ampm($event['start_time']) ?> -

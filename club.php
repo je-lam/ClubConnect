@@ -80,38 +80,38 @@ require 'includes/header.php';
                 <div class="club-social-icons">
                     <?php if ($linkedin_url !== ''): ?>
                         <a class="club-social-icon" href="<?= htmlspecialchars($linkedin_url) ?>" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                            <img src="/assets/logolinkedin.png" alt="">
+                            <img src="assets/logolinkedin.png" alt="">
                         </a>
                     <?php else: ?>
                         <span class="club-social-icon club-social-icon-disabled" aria-label="LinkedIn">
-                            <img src="/assets/logolinkedin.png" alt="">
+                            <img src="assets/logolinkedin.png" alt="">
                         </span>
                     <?php endif; ?>
                     <?php if ($slack_url !== ''): ?>
                         <a class="club-social-icon" href="<?= htmlspecialchars($slack_url) ?>" target="_blank" rel="noopener noreferrer" aria-label="Slack">
-                            <img src="/assets/Slack_icon_2019.svg.png" alt="">
+                            <img src="assets/Slack_icon_2019.svg.png" alt="">
                         </a>
                     <?php else: ?>
                         <span class="club-social-icon club-social-icon-disabled" aria-label="Slack">
-                            <img src="/assets/Slack_icon_2019.svg.png" alt="">
+                            <img src="assets/Slack_icon_2019.svg.png" alt="">
                         </span>
                     <?php endif; ?>
                     <?php if ($discord_url !== ''): ?>
                         <a class="club-social-icon" href="<?= htmlspecialchars($discord_url) ?>" target="_blank" rel="noopener noreferrer" aria-label="Discord">
-                            <img src="/assets/logodiscord.png" alt="">
+                            <img src="assets/logodiscord.png" alt="">
                         </a>
                     <?php else: ?>
                         <span class="club-social-icon club-social-icon-disabled" aria-label="Discord">
-                            <img src="/assets/logodiscord.png" alt="">
+                            <img src="assets/logodiscord.png" alt="">
                         </span>
                     <?php endif; ?>
                     <?php if ($instagram_url !== ''): ?>
                         <a class="club-social-icon" href="<?= htmlspecialchars($instagram_url) ?>" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                            <img src="/assets/logoinstagram.png" alt="">
+                            <img src="assets/logoinstagram.png" alt="">
                         </a>
                     <?php else: ?>
                         <span class="club-social-icon club-social-icon-disabled" aria-label="Instagram">
-                            <img src="/assets/logoinstagram.png" alt="">
+                            <img src="assets/logoinstagram.png" alt="">
                         </span>
                     <?php endif; ?>
                 </div>
@@ -119,7 +119,7 @@ require 'includes/header.php';
 
             <div class="club-add-to-calendar">
                 <a class="club-add-to-calendar-btn" target="_blank" href="https://calendar.google.com/calendar/event?action=TEMPLATE&amp;tmeid=MTFhY24wbzVtdGxmMTlxbWUwdTFuaGE2MTggY18zNjcwYWY1NmFkMWNkYWRlMDk0YTFmYzU2NDFhNzg2ZTIzMDNiNzNjY2ZmYjFkNzhjMzUwNjQ2ZmRmYmE0OGZlQGc&amp;tmsrc=c_3670af56ad1cdade094a1fc5641a786e2303b73ccffb1d78c350646fdfba48fe%40group.calendar.google.com" rel="noopener noreferrer" aria-label="Add to Google Calendar">
-                    <img src="/assets/logo_gcalendar.svg" alt="" class="club-add-to-calendar-icon">
+                    <img src="assets/logo_gcalendar.svg" alt="" class="club-add-to-calendar-icon">
                     Add to Calendar
                 </a>
             </div>

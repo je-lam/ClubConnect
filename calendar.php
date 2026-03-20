@@ -145,7 +145,7 @@ require 'includes/header.php';
                                     ? " background: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url('" . htmlspecialchars($event['logo_url']) . "') center/cover no-repeat;"
                                     : '';
                                 ?>
-                                <a href="/club.php?id=<?= $event['club_id'] ?>" class="calendar-event<?= $has_logo ? ' calendar-event-has-logo' : '' ?>"
+                                <a href="club.php?id=<?= $event['club_id'] ?>" class="calendar-event<?= $has_logo ? ' calendar-event-has-logo' : '' ?>"
                                     style="top: <?= $top ?>px; height: <?= $height ?>px;<?= $bg_style ?>">
                                     <p class="calendar-event-name"><?= htmlspecialchars($event['club_name']) ?></p>
                                     <p class="calendar-event-time">

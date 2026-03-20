@@ -35,28 +35,43 @@ var directorySearchForm = document.getElementById("directory-search-form");
 function clubMatchesSearch(card, query) {
   if (!query) return true;
   var name = (card.dataset.name || "").toLowerCase();
-  var tags = (card.dataset.tags || "").toLowerCase().split(",").map(function (t) {
-    return t.trim();
-  }).filter(Boolean);
+  var tags = (card.dataset.tags || "")
+    .toLowerCase()
+    .split(",")
+    .map(function (t) {
+      return t.trim();
+    })
+    .filter(Boolean);
   var section = card.closest(".category-section");
-  var category = (section && section.dataset.category) ? section.dataset.category.toLowerCase() : "";
-  return name.indexOf(query) !== -1 ||
+  var category =
+    section && section.dataset.category
+      ? section.dataset.category.toLowerCase()
+      : "";
+  return (
+    name.indexOf(query) !== -1 ||
     tags.some(function (t) {
       return t.indexOf(query) !== -1;
     }) ||
-    category.indexOf(query) !== -1;
+    category.indexOf(query) !== -1
+  );
 }
 
 function clubMatchesTag(card, selectedTag) {
   if (!selectedTag) return true;
-  var cardTags = (card.dataset.tags || "").split(",").map(function (t) {
-    return t.trim();
-  }).filter(Boolean);
+  var cardTags = (card.dataset.tags || "")
+    .split(",")
+    .map(function (t) {
+      return t.trim();
+    })
+    .filter(Boolean);
   return cardTags.indexOf(selectedTag) !== -1;
 }
 
 function applyFilters() {
-  var query = (searchInput && searchInput.value) ? searchInput.value.trim().toLowerCase() : "";
+  var query =
+    searchInput && searchInput.value
+      ? searchInput.value.trim().toLowerCase()
+      : "";
   var activePill = document.querySelector(".tag-pill.active");
   var selectedTag = activePill ? activePill.dataset.tag : null;
 
@@ -67,7 +82,9 @@ function applyFilters() {
   });
 
   categorySections.forEach(function (section) {
-    var visibleCards = section.querySelectorAll(".club-card[style=''],.club-card:not([style])");
+    var visibleCards = section.querySelectorAll(
+      ".club-card[style=''],.club-card:not([style])",
+    );
     section.style.display = visibleCards.length === 0 ? "none" : "";
   });
 }
@@ -179,7 +196,9 @@ function showRecentlyViewed() {
   recent.forEach(function (item) {
     // If we dont have a logoUrl saved yet, try to read it from the corresponding club card on the directory page
     if (!item.logoUrl) {
-      var card = document.querySelector('.club-card[data-id="' + item.id + '"]');
+      var card = document.querySelector(
+        '.club-card[data-id="' + item.id + '"]',
+      );
       if (card) {
         var cardLogoImg = card.querySelector(".club-card-logo");
         if (cardLogoImg && cardLogoImg.getAttribute("src")) {
@@ -190,7 +209,7 @@ function showRecentlyViewed() {
     }
 
     var link = document.createElement("a");
-    link.href = "/club.php?id=" + item.id;
+    link.href = "club.php?id=" + item.id;
     link.className = "recent-club-item";
 
     var avatar = document.createElement("div");
